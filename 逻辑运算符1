@@ -1,0 +1,27 @@
+在逻辑与&和短路与&&是只有全部条件true才能返回true
+
+而逻辑异或就是，如果条件不一致就取true，条件一致就取false。
+
+所以把逻辑异或取反，就能实现只要所有条件一致就给true的操作。
+
+比如以下代码，这是实现异或的相反的操作
+
+public class ConditionChecker {
+    // 传入两个boolean的参数，将这两个参数用取逻辑异或然后取反，然后返回
+    public static boolean areConditionsEqual(boolean a, boolean b) {
+        return !(a ^ b);
+    }
+
+    public static void main(String[] args) {
+        // 传入四个测试用的参数
+        boolean result1 = areConditionsEqual(false, false); // 返回 true
+        boolean result2 = areConditionsEqual(true, true);   // 返回 true
+        boolean result3 = areConditionsEqual(true, false);  // 返回 false
+        boolean result4 = areConditionsEqual(false, true);  // 返回 false
+        // 输出结果
+        System.out.println("Result 1: " + result1); 
+        System.out.println("Result 2: " + result2);
+        System.out.println("Result 3: " + result3);
+        System.out.println("Result 4: " + result4);
+    }
+}
