@@ -1,0 +1,24 @@
+        // &&短路与    ||短路或   ！取反
+
+        // 大致判断和逻辑运算一致但是实际执行上不一样
+
+        // 短路运算的与&&在遇到false就直接结束了，短路或||在遇到true后就结束，都不会继续执行后续的判断
+
+        // 在性能上更优秀，但是有时候后续的判断是需要执行的，所以这个时候并不算最优
+
+        int z = 0;
+        boolean z1 = true;
+        boolean z2 = false;
+
+        // 因为第一个为true，所以逻辑异或会继续执行，z值会被改变
+        System.out.println(z1 && (++z >= 1));    // true && true  //(++z >= 1)的结果为true
+        System.out.println("这时候的z为" + z);    // z为1
+
+        // 当第一个判断条件为false时，短路与&&就不会继续执行后续的操作，所以z值就不会被改变
+        z = 0;
+        System.out.println(z2 && (++z >= 1));    // false && true  //(++z >= 1)的结果为true
+        System.out.println("这时候的z为" + z);    // z为0，因为短路与遇到第一个false后就不再运行了，所以后续的++z没被执行
+
+        // 取反 ！ 将一个判断结果取反
+        boolean z3 = true;
+        System.out.println("z3的结果是：" + z3 + "，取反之后结果是：" + !z3);
